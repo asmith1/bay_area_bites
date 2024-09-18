@@ -2,10 +2,10 @@ import Config
 
 # Configure your database
 config :bay_area_bites, BayAreaBites.Repo,
-  username: "postgres",
-  password: "postgres",
+  username: "newuser",
+  password: "password",
   hostname: "localhost",
-  database: "bay_area_bites_dev",
+  database: "bay_area_bites",
   stacktrace: true,
   show_sensitive_data_on_connection_error: true,
   pool_size: 10
