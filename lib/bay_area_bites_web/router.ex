@@ -18,6 +18,8 @@ defmodule BayAreaBitesWeb.Router do
     pipe_through :browser
 
     get "/", PageController, :home
+
+    resources "/food_trucks", FoodTruckController
   end
 
   # Other scopes may use custom stacks.

@@ -5,7 +5,7 @@ config :bay_area_bites, BayAreaBites.Repo,
   username: "newuser",
   password: "password",
   hostname: "localhost",
-  database: "bay_area_bites_db",
+  database: "bay_area_bites",
   stacktrace: true,
   show_sensitive_data_on_connection_error: true,
   pool_size: 10

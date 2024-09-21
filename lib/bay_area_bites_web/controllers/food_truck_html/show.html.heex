@@ -1,0 +1,26 @@
+<.header>
+  Food truck <%= @food_truck.id %>
+  <:subtitle>This is a food_truck record from your database.</:subtitle>
+  <:actions>
+    <.link href={~p"/food_trucks/#{@food_truck}/edit"}>
+      <.button>Edit food_truck</.button>
+    </.link>
+  </:actions>
+</.header>
+
+<.list>
+  <:item title="Location"><%= @food_truck.location_id %></:item>
+  <:item title="Name"><%= @food_truck.name %></:item>
+  <:item title="Facility type"><%= @food_truck.facility_type %></:item>
+  <:item title="Location description"><%= @food_truck.location_description %></:item>
+  <:item title="Address"><%= @food_truck.address %></:item>
+  <:item title="Status"><%= @food_truck.status %></:item>
+  <:item title="X coordinate"><%= @food_truck.x_coordinate %></:item>
+  <:item title="Y coordinate"><%= @food_truck.y_coordinate %></:item>
+  <:item title="Latitude"><%= @food_truck.latitude %></:item>
+  <:item title="Longitude"><%= @food_truck.longitude %></:item>
+  <:item title="Link to schedule pdf"><%= @food_truck.link_to_schedule_pdf %></:item>
+  <:item title="Schedule description"><%= @food_truck.schedule_description %></:item>
+</.list>
+
+<.back navigate={~p"/food_trucks"}>Back to food_trucks</.back>

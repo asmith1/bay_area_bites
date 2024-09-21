@@ -1,0 +1,20 @@
+<.simple_form :let={f} for={@changeset} action={@action}>
+  <.error :if={@changeset.action}>
+    Oops, something went wrong! Please check the errors below.
+  </.error>
+  <.input field={f[:location_id]} type="number" label="Location" />
+  <.input field={f[:name]} type="text" label="Name" />
+  <.input field={f[:facility_type]} type="text" label="Facility type" />
+  <.input field={f[:location_description]} type="text" label="Location description" />
+  <.input field={f[:address]} type="text" label="Address" />
+  <.input field={f[:status]} type="text" label="Status" />
+  <.input field={f[:x_coordinate]} type="number" label="X coordinate" step="any" />
+  <.input field={f[:y_coordinate]} type="number" label="Y coordinate" step="any" />
+  <.input field={f[:latitude]} type="number" label="Latitude" step="any" />
+  <.input field={f[:longitude]} type="number" label="Longitude" step="any" />
+  <.input field={f[:link_to_schedule_pdf]} type="text" label="Link to schedule pdf" />
+  <.input field={f[:schedule_description]} type="text" label="Schedule description" />
+  <:actions>
+    <.button>Save Food truck</.button>
+  </:actions>
+</.simple_form>
