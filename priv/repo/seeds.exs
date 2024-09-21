@@ -9,3 +9,7 @@
 #
 # We recommend using the bang functions (`insert!`, `update!`
 # and so on) as they will fail if something goes wrong.
+
+# for parsing the food items:
+# Remove "COLD TRUCK.", "cold truck", "cold truck:" (any case & with or without . or : at end)
+# ignore menu items if there there are no colons & data is longer than X characters long
