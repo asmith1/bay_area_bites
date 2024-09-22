@@ -3,9 +3,9 @@ defmodule BayAreaBites.Repo.Migrations.AddUniqueIndexToLocationId do
 
   def change do
     create unique_index(
-      :food_trucks,
-      :location_id,
-      name: :location_id_unique_index
-    )
+             :food_trucks,
+             :location_id,
+             name: :location_id_unique_index
+           )
   end
 end

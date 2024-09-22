@@ -7,9 +7,17 @@
   </:actions>
 </.header>
 
-<.table id="food_truck_food_items" rows={@food_truck_food_items} row_click={&JS.navigate(~p"/food_truck_food_items/#{&1}")}>
-  <:col :let={food_truck_food_item} label="Food truck"><%= food_truck_food_item.food_truck_id %></:col>
-  <:col :let={food_truck_food_item} label="Food item"><%= food_truck_food_item.food_item_id %></:col>
+<.table
+  id="food_truck_food_items"
+  rows={@food_truck_food_items}
+  row_click={&JS.navigate(~p"/food_truck_food_items/#{&1}")}
+>
+  <:col :let={food_truck_food_item} label="Food truck">
+    <%= food_truck_food_item.food_truck_id %>
+  </:col>
+  <:col :let={food_truck_food_item} label="Food item">
+    <%= food_truck_food_item.food_item_id %>
+  </:col>
   <:action :let={food_truck_food_item}>
     <div class="sr-only">
       <.link navigate={~p"/food_truck_food_items/#{food_truck_food_item}"}>Show</.link>
@@ -17,7 +25,11 @@
     <.link navigate={~p"/food_truck_food_items/#{food_truck_food_item}/edit"}>Edit</.link>
   </:action>
   <:action :let={food_truck_food_item}>
-    <.link href={~p"/food_truck_food_items/#{food_truck_food_item}"} method="delete" data-confirm="Are you sure?">
+    <.link
+      href={~p"/food_truck_food_items/#{food_truck_food_item}"}
+      method="delete"
+      data-confirm="Are you sure?"
+    >
       Delete
     </.link>
   </:action>

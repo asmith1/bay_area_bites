@@ -41,7 +41,10 @@ defmodule BayAreaBitesWeb.FoodTruckFoodItemControllerTest do
   describe "edit food_truck_food_item" do
     setup [:create_food_truck_food_item]
 
-    test "renders form for editing chosen food_truck_food_item", %{conn: conn, food_truck_food_item: food_truck_food_item} do
+    test "renders form for editing chosen food_truck_food_item", %{
+      conn: conn,
+      food_truck_food_item: food_truck_food_item
+    } do
       conn = get(conn, ~p"/food_truck_food_items/#{food_truck_food_item}/edit")
       assert html_response(conn, 200) =~ "Edit Food truck food item"
     end
@@ -51,15 +54,26 @@ defmodule BayAreaBitesWeb.FoodTruckFoodItemControllerTest do
     setup [:create_food_truck_food_item]
 
     test "redirects when data is valid", %{conn: conn, food_truck_food_item: food_truck_food_item} do
-      conn = put(conn, ~p"/food_truck_food_items/#{food_truck_food_item}", food_truck_food_item: @update_attrs)
+      conn =
+        put(conn, ~p"/food_truck_food_items/#{food_truck_food_item}",
+          food_truck_food_item: @update_attrs
+        )
+
       assert redirected_to(conn) == ~p"/food_truck_food_items/#{food_truck_food_item}"
 
       conn = get(conn, ~p"/food_truck_food_items/#{food_truck_food_item}")
       assert html_response(conn, 200)
     end
 
-    test "renders errors when data is invalid", %{conn: conn, food_truck_food_item: food_truck_food_item} do
-      conn = put(conn, ~p"/food_truck_food_items/#{food_truck_food_item}", food_truck_food_item: @invalid_attrs)
+    test "renders errors when data is invalid", %{
+      conn: conn,
+      food_truck_food_item: food_truck_food_item
+    } do
+      conn =
+        put(conn, ~p"/food_truck_food_items/#{food_truck_food_item}",
+          food_truck_food_item: @invalid_attrs
+        )
+
       assert html_response(conn, 200) =~ "Edit Food truck food item"
     end
   end
@@ -67,7 +81,10 @@ defmodule BayAreaBitesWeb.FoodTruckFoodItemControllerTest do
   describe "delete food_truck_food_item" do
     setup [:create_food_truck_food_item]
 
-    test "deletes chosen food_truck_food_item", %{conn: conn, food_truck_food_item: food_truck_food_item} do
+    test "deletes chosen food_truck_food_item", %{
+      conn: conn,
+      food_truck_food_item: food_truck_food_item
+    } do
       conn = delete(conn, ~p"/food_truck_food_items/#{food_truck_food_item}")
       assert redirected_to(conn) == ~p"/food_truck_food_items"
 

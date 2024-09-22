@@ -3,6 +3,9 @@
   <:subtitle>Use this form to manage food_truck_food_item records in your database.</:subtitle>
 </.header>
 
-<.food_truck_food_item_form changeset={@changeset} action={~p"/food_truck_food_items/#{@food_truck_food_item}"} />
+<.food_truck_food_item_form
+  changeset={@changeset}
+  action={~p"/food_truck_food_items/#{@food_truck_food_item}"}
+/>
 
 <.back navigate={~p"/food_truck_food_items"}>Back to food_truck_food_items</.back>

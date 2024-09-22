@@ -22,7 +22,6 @@ defmodule BayAreaBitesWeb.Router do
     resources "/food_trucks", FoodTruckController
     resources "/food_items", FoodItemController
     resources "/food_truck_food_items", FoodTruckFoodItemController
-
   end
 
   # Other scopes may use custom stacks.

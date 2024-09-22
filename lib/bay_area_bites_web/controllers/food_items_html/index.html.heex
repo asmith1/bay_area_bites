@@ -7,7 +7,11 @@
   </:actions>
 </.header>
 
-<.table id="food_items" rows={@food_items_collection} row_click={&JS.navigate(~p"/food_items/#{&1}")}>
+<.table
+  id="food_items"
+  rows={@food_items_collection}
+  row_click={&JS.navigate(~p"/food_items/#{&1}")}
+>
   <:col :let={food_items} label="Name"><%= food_items.name %></:col>
   <:action :let={food_items}>
     <div class="sr-only">
