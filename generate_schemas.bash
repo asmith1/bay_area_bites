@@ -15,9 +15,9 @@ mix phx.gen.html Schema FoodTruck food_trucks \
 mix phx.gen.html Schema FoodItem food_items \
     name:string
 
-# mix phx.gen.html Schema FoodTruckFoodItem food_truck_food_items \
-#     food_truck:FoodTruck \
-#     food_item:FoodItem
+mix phx.gen.html Schema FoodTruckFoodItem food_truck_food_items \
+    food_truck_id:integer \
+    food_item_id:integer
 
 # I'm using a join table with a many-to-many relationship to food_trucks
 # to enable easily searching menu by food truck as well as querying by food items offered.
