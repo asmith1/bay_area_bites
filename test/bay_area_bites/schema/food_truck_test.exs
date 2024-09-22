@@ -1,6 +1,7 @@
 defmodule BayAreaBites.Schema.FoodTruckTest do
   use BayAreaBites.DataCase
 
+  alias BayAreaBites.Schema
   alias BayAreaBites.Schema.FoodTruck
 
   describe "food_trucks" do

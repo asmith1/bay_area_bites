@@ -1,6 +1,7 @@
 defmodule BayAreaBites.Schema.FoodItemTest do
   use BayAreaBites.DataCase
 
+  alias BayAreaBites.Schema
   alias BayAreaBites.Schema.FoodItem
 
   describe "food_items" do
