@@ -13,7 +13,7 @@
 defmodule Scripts.ImportDataFromCsv do
   alias NimbleCSV.RFC4180, as: CsvParser
   alias BayAreaBites.Repo
-  alias BayAreaBites.App.FoodTruck
+  alias BayAreaBites.Schema.FoodTruck
 
   # i arrived at this number by spot checking some of the data where we see long food item names and
   # some garbage data and 50 seemed like a reasonable number within those bounds
@@ -54,6 +54,7 @@ defmodule Scripts.ImportDataFromCsv do
                        _zip_codes,
                        _neighborhoods
                      ] ->
+      # TODO: if a record already exists with that location_id, update existing record
       Repo.insert!(%FoodTruck{
         location_id: String.to_integer(location_id),
         name: :binary.copy(applicant),
