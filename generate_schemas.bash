@@ -12,8 +12,8 @@ mix phx.gen.html Schema FoodTruck food_trucks \
     link_to_schedule_pdf:string \
     schedule_description:string
 
-# mix phx.gen.html Schema FoodItems food_items \
-#     name:string
+mix phx.gen.html Schema FoodItem food_items \
+    name:string
 
 # mix phx.gen.html Schema FoodTruckFoodItem food_truck_food_items \
 #     food_truck:FoodTruck \

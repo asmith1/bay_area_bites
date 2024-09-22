@@ -1,0 +1,15 @@
+<.header>
+  Food items <%= @food_items.id %>
+  <:subtitle>This is a food_items record from your database.</:subtitle>
+  <:actions>
+    <.link href={~p"/food_items/#{@food_items}/edit"}>
+      <.button>Edit food_items</.button>
+    </.link>
+  </:actions>
+</.header>
+
+<.list>
+  <:item title="Name"><%= @food_items.name %></:item>
+</.list>
+
+<.back navigate={~p"/food_items"}>Back to food_items</.back>

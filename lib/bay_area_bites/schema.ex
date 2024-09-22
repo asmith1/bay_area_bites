@@ -101,4 +101,100 @@ defmodule BayAreaBites.Schema do
   def change_food_truck(%FoodTruck{} = food_truck, attrs \\ %{}) do
     FoodTruck.changeset(food_truck, attrs)
   end
+
+  alias BayAreaBites.Schema.FoodItem
+
+  @doc """
+  Returns the list of food_items.
+
+  ## Examples
+
+      iex> list_food_items()
+      [%FoodItem{}, ...]
+
+  """
+  def list_food_items do
+    Repo.all(FoodItem)
+  end
+
+  @doc """
+  Gets a single food_items.
+
+  Raises `Ecto.NoResultsError` if the Food items does not exist.
+
+  ## Examples
+
+      iex> get_food_items!(123)
+      %FoodItem{}
+
+      iex> get_food_items!(456)
+      ** (Ecto.NoResultsError)
+
+  """
+  def get_food_items!(id), do: Repo.get!(FoodItem, id)
+
+  @doc """
+  Creates a food_items.
+
+  ## Examples
+
+      iex> create_food_items(%{field: value})
+      {:ok, %FoodItem{}}
+
+      iex> create_food_items(%{field: bad_value})
+      {:error, %Ecto.Changeset{}}
+
+  """
+  def create_food_items(attrs \\ %{}) do
+    %FoodItem{}
+    |> FoodItem.changeset(attrs)
+    |> Repo.insert()
+  end
+
+  @doc """
+  Updates a food_items.
+
+  ## Examples
+
+      iex> update_food_items(food_items, %{field: new_value})
+      {:ok, %FoodItem{}}
+
+      iex> update_food_items(food_items, %{field: bad_value})
+      {:error, %Ecto.Changeset{}}
+
+  """
+  def update_food_items(%FoodItem{} = food_items, attrs) do
+    food_items
+    |> FoodItem.changeset(attrs)
+    |> Repo.update()
+  end
+
+  @doc """
+  Deletes a food_items.
+
+  ## Examples
+
+      iex> delete_food_items(food_items)
+      {:ok, %FoodItem{}}
+
+      iex> delete_food_items(food_items)
+      {:error, %Ecto.Changeset{}}
+
+  """
+  def delete_food_items(%FoodItem{} = food_items) do
+    Repo.delete(food_items)
+  end
+
+  @doc """
+  Returns an `%Ecto.Changeset{}` for tracking food_items changes.
+
+  ## Examples
+
+      iex> change_food_items(food_items)
+      %Ecto.Changeset{data: %FoodItem{}}
+
+  """
+  def change_food_items(%FoodItem{} = food_items, attrs \\ %{}) do
+    FoodItem.changeset(food_items, attrs)
+  end
 end

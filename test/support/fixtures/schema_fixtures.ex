@@ -28,4 +28,18 @@ defmodule BayAreaBites.SchemaFixtures do
 
     food_truck
   end
+
+  @doc """
+  Generate a food_items.
+  """
+  def food_items_fixture(attrs \\ %{}) do
+    {:ok, food_items} =
+      attrs
+      |> Enum.into(%{
+        name: "some name"
+      })
+      |> BayAreaBites.Schema.create_food_items()
+
+    food_items
+  end
 end

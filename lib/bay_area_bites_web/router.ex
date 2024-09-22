@@ -20,6 +20,9 @@ defmodule BayAreaBitesWeb.Router do
     get "/", PageController, :home
 
     resources "/food_trucks", FoodTruckController
+
+    resources "/food_items", FoodItemController
+
   end
 
   # Other scopes may use custom stacks.
