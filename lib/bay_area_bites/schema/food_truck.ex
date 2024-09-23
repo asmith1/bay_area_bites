@@ -50,6 +50,6 @@ defmodule BayAreaBites.Schema.FoodTruck do
       :link_to_schedule_pdf,
       :schedule_description
     ])
-    |> unique_constraint(:location_id)
+    |> unique_constraint(:location_id, name: :location_id_unique_index)
   end
 end

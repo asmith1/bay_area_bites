@@ -116,5 +116,7 @@ defmodule BayAreaBites.Schema.FoodTruckTest do
       food_truck = food_truck_fixture()
       assert %Ecto.Changeset{} = Schema.change_food_truck(food_truck)
     end
+
+    # TODO: write test for creating food truck with existing location_id - should error
   end
 end
