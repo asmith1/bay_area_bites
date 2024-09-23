@@ -1,4 +1,5 @@
 defmodule BayAreaBites.Schema.FoodTruck do
+  alias BayAreaBites.Schema.FoodTruckFoodItem
   use Ecto.Schema
   import Ecto.Changeset
 
@@ -15,6 +16,7 @@ defmodule BayAreaBites.Schema.FoodTruck do
     field :longitude, :float
     field :link_to_schedule_pdf, :string
     field :schedule_description, :string
+    has_many :food_truck_food_items, FoodTruckFoodItem
 
     timestamps(type: :utc_datetime)
   end

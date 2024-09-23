@@ -1,10 +1,12 @@
 defmodule BayAreaBites.Schema.FoodTruckFoodItem do
+  alias BayAreaBites.Schema.FoodItem
+  alias BayAreaBites.Schema.FoodTruck
   use Ecto.Schema
   import Ecto.Changeset
 
   schema "food_truck_food_items" do
-    field :food_truck_id, :integer
-    field :food_item_id, :integer
+    belongs_to :food_truck, FoodTruck
+    belongs_to :food_item, FoodItem
 
     timestamps(type: :utc_datetime)
   end
@@ -14,5 +16,6 @@ defmodule BayAreaBites.Schema.FoodTruckFoodItem do
     food_truck_food_item
     |> cast(attrs, [:food_truck_id, :food_item_id])
     |> validate_required([:food_truck_id, :food_item_id])
+    |> unique_constraint(:food_item_id, name: :food_truck_food_item_unique_index)
   end
 end

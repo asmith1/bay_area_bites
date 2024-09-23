@@ -114,16 +114,10 @@ defmodule Mix.Tasks.ImportDataFromCsv do
     |> Enum.map(&String.trim/1)
     |> Enum.reject(fn item -> String.length(item) > @food_item_char_limit end)
     |> Enum.map(&String.downcase/1)
-    |> Enum.map(fn item ->
-      case Repo.insert(%FoodItem{name: item}) do
+    |> Enum.map(fn item_name ->
+      case get_or_create_food_item(item_name) do
         {:ok, %FoodItem{id: food_item_id}} ->
-          # TODO: log that we successfully added a new food item
-          Repo.insert!(%FoodTruckFoodItem{
-            food_item_id: food_item_id,
-            food_truck_id: food_truck_id
-          })
-
-        # TODO: log when adding new food truck food items is successful
+          create_food_truck_food_item_or_skip(food_item_id, food_truck_id)
 
         {:error, _error} ->
           # TODO: log here so we can investigate error
@@ -135,5 +129,36 @@ defmodule Mix.Tasks.ImportDataFromCsv do
     # with more time i would have correctly handled parentheses - when a colon is inside of a set of parentheses it's ignored
     # an even better implementation would have metadata on the food and enable the food item to be pizza e.g. and have different types
     # which are the options within the parentheses that we see in much of the data
+  end
+
+  defp get_or_create_food_item(item_name) do
+    from(fi in FoodItem,
+      where: fi.name == ^item_name
+    )
+    |> Repo.one()
+    |> case do
+      %FoodItem{} = food_item ->
+        {:ok, food_item}
+
+      nil ->
+        Repo.insert(%FoodItem{name: item_name})
+        # TODO: log that we successfully added a new food item
+    end
+  end
+
+  defp create_food_truck_food_item_or_skip(food_item_id, food_truck_id) do
+    from(ftfi in FoodTruckFoodItem,
+      where: ftfi.food_item_id == ^food_item_id,
+      where: ftfi.food_truck_id == ^food_truck_id
+    )
+    |> Repo.exists?()
+    |> unless do
+      Repo.insert!(%FoodTruckFoodItem{
+        food_item_id: food_item_id,
+        food_truck_id: food_truck_id
+      })
+
+      # TODO: log when adding new food truck food items is successful
+    end
   end
 end
