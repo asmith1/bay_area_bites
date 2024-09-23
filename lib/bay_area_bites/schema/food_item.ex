@@ -1,4 +1,5 @@
 defmodule BayAreaBites.Schema.FoodItem do
+  alias BayAreaBites.Schema.FoodTruckFoodItem
   use Ecto.Schema
   import Ecto.Changeset
 
