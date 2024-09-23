@@ -28,10 +28,11 @@ There are also 2 more routes that are not very useful as they are currently buil
 I left "TODO" comments throughout the codebase to detail additions I would make if I had more time. To list a few, high level, I would like to:
 
 
-- Add the menu to the food truck show page
-- Add the food trucks to the food items show page
-   - I designed the database with these 2 items in mind, taking a future-focused approach. As it stands, the database structure seems rather silly. With these 2 additional features, however, it would be pretty cool!
+- **Add the menu to the food truck show page
+- **Add the food trucks to the food items show page
 - Add a search bar to the food trucks index page
 - Make the home page nicer
 - Add more logging
 - Add more comprehensive testing
+
+** Note: I designed the database with these 2 items in mind, taking a future-focused approach. As it stands, the database structure seems rather silly. With these 2 additional features, however, it would be pretty cool!
