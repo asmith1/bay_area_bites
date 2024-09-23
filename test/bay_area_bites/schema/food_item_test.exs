@@ -54,5 +54,7 @@ defmodule BayAreaBites.Schema.FoodItemTest do
       food_items = food_items_fixture()
       assert %Ecto.Changeset{} = Schema.change_food_items(food_items)
     end
+
+    # TODO: add test for creating food item with an existing name - should error
   end
 end

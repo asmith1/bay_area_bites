@@ -69,6 +69,7 @@ defmodule BayAreaBites.MixProject do
   #     $ mix setup
   #
   # See the documentation for `Mix` for more info on aliases.
+  # TODO: add mix import_data_from_csv to the mix setup tasks
   defp aliases do
     [
       setup: ["deps.get", "ecto.setup", "assets.setup", "assets.build"],

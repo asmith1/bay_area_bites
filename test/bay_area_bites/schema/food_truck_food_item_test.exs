@@ -68,5 +68,7 @@ defmodule BayAreaBites.Schema.FoodTruckFoodItemTest do
       food_truck_food_item = food_truck_food_item_fixture()
       assert %Ecto.Changeset{} = Schema.change_food_truck_food_item(food_truck_food_item)
     end
+
+    # TODO: add test for creating record with existing food truck id and food item id combo - should error
   end
 end
